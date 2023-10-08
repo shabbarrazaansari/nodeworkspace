@@ -1,21 +1,21 @@
 const express = require('express');
-const port = 3000;
+const bodyParser = require('body-parser');
+
 const app = express();
 
-app.use((req, res, next) => {
-    console.log('Middleware 1 is executed');
-    next();
+app.use(bodyParser.urlencoded({extended: false}));
+
+app.use('/add-product', (req, res, next) => {
+  res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>');
 });
 
-app.use((req, res, next) => {
-    console.log('Middleware 2 is executed');
-    next();
+app.post('/product', (req, res, next) => {
+    console.log(req.body);
+    res.redirect('/');
 });
 
-app.listen(port, (err) => {
-    if (err) {
-        console.log('The error is', err);
-    } else {
-        console.log('Express server is running on port', port);
-    }
+app.use('/', (req, res, next) => {
+  res.send('<h1>Hello from Express!</h1>');
 });
+
+app.listen(3000);
