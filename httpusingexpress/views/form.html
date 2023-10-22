@@ -4,12 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/form.css">
+
 </head>
 <body>
-    <form action="/success">
-        <input type="text" name="name">
-        <input type="email" name="email">
-        <button type="submit">submitform</button>
-    </form>
+    <header class="main-header">
+        <nav class="main-header__nav">
+            <ul class="main-header__item-list">
+                <li class="main-header__item"><a href="/">Shop</a></li>
+                <li class="main-header__item"><a class="active" href="/add-product">Add Product</a></li>
+                <li class="main-header__item"><a href="/contactus">contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+     <form action="/success" class="contact-form">
+     <div class="cform-control">
+        <label for="fname" >First name::</label><br>
+        <input type="text" name="name" id="fname" required>
+        <br>
+        <label for="lastname" >last name:</label><br>
+        <input type="text" name="name" id="lastname" required><br>
+        <label for="email">email</label><br>
+        <input type="email" name="email" id="email" required><br>
+     </div>
+        <button type="submit">submit</button>
+     </form>
+   </main>
 </body>
 </html>
