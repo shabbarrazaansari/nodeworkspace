@@ -11,6 +11,11 @@ router.get('/add-product', (req, res, next) => {
       console.log(req.body);
       res.redirect('/');
   });
-  
+  router.get('/contactus',(req,res,next)=>{
+    res.sendFile(path.join(__dirname,'../','views','form.html'))
+  })
+  router.get('/success',(req,res,next)=>{
+    res.send('form submitted');
+  });
  
 module.exports = router;
