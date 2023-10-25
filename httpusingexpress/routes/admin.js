@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const { contactuscontroller } = require('../controller/contactus');
+const { successController } = require('../controller/success');
 
 router.get('/add-product', (req, res, next) => {
     //res.send('<form action="/product" method="POST"><input type="text" name="title"><button type="submit">Add Product</button></form>');
@@ -11,11 +13,7 @@ router.get('/add-product', (req, res, next) => {
       console.log(req.body);
       res.redirect('/');
   });
-  router.get('/contactus',(req,res,next)=>{
-    res.sendFile(path.join(__dirname,'../','views','form.html'))
-  })
-  router.get('/success',(req,res,next)=>{
-    res.send('form submitted');
-  });
+  router.get('/contactus',contactuscontroller);
+  router.get('/success',successController);
  
 module.exports = router;
